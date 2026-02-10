@@ -1,11 +1,11 @@
 # Specification
 
 ## Summary
-**Goal:** Add local, toggle-controlled romantic background music and a “tiny romantic harp” sound effect to the Valentine proposal flow.
+**Goal:** Add a visible Share button to the Valentine proposal and success screens that copies the current page URL and shows accurate toast messaging.
 
 **Planned changes:**
-- Add a local looping background music file at `frontend/public/assets/audio/romantic-bg.mp3` and ensure the existing audio controller starts/stops it when the audio toggle is enabled/disabled.
-- Add a local “tiny romantic harp” SFX asset under `frontend/public/assets/audio` and play it on each “Yes! 💕” tap/click only when audio is enabled (off by default).
-- Wire the Valentine proposal screen’s “Yes” action into the existing shared audio enabled/disabled state (single source of truth), avoiding duplicated audio state across components.
+- Add a tap-friendly “Share” button on the “Will You Be My Valentine?” view that copies `window.location.href` to the clipboard and shows a confirmation toast.
+- Add the same “Share” button and behavior on the “Good Choice” success view.
+- Update Share-related toast copy to reference sharing the Valentine page (not a quiz), including a clear English error message on copy failure.
 
-**User-visible outcome:** Users can enable audio with the existing toggle to hear looping romantic background music, and when enabled they hear a short harp sound each time they tap/click “Yes! 💕”; with audio off, no sounds play.
+**User-visible outcome:** Users can tap “Share” on both the proposal and “Good Choice” screens to copy the current Valentine page link and see a toast confirming success (or an English error prompt if copying fails).

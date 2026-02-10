@@ -2,8 +2,8 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-add-a-tiny-romantic-harp-sound-effect-and-play-it-when-the-user-clicks-taps-the-yes-button-on-the-valentine-proposal-screen-but-only-when-audio-is-enabled-via-the-existing-audio-toggle-audio-must-remain-off-by-default-until-enabled",
-      "featureTitle": "Add a tiny romantic harp sound effect and play it when the user clicks/taps the “Yes! 💕” button on the Valentine proposal screen, but only when audio is enabled via the existing audio toggle (audio must remain off by default until enabled).",
+      "featureId": "feature-render-a-visible-tap-friendly-share-button-on-the-valentine-proposal-screen-the-will-you-be-my-valentine-view-that-copies-the-current-page-url-to-the-clipboard-and-shows-a-confirmation-toast",
+      "featureTitle": "Render a visible, tap-friendly \"Share\" button on the Valentine proposal screen (the \"Will You Be My Valentine?\" view) that copies the current page URL to the clipboard and shows a confirmation toast.",
       "files": [
         "frontend/src/components/screens/ValentineProposalScreen.tsx"
       ],
@@ -15,19 +15,15 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-17"
+        "REQ-30"
       ],
       "confidence": "high"
     },
     {
-      "featureId": "feature-wire-the-valentine-proposal-screen-to-the-audio-system-so-the-yes-click-can-trigger-the-harp-sfx-without-duplicating-independent-audio-controller-state-across-components",
-      "featureTitle": "Wire the Valentine proposal screen to the audio system so the “Yes” click can trigger the harp SFX without duplicating independent audio controller state across components.",
+      "featureId": "feature-render-the-same-share-button-on-the-valentine-proposal-confirmation-view-the-good-choice-success-view-shown-after-tapping-yes",
+      "featureTitle": "Render the same \"Share\" button on the Valentine proposal confirmation view (the \"Good Choice\" success view shown after tapping \"Yes! 💕\").",
       "files": [
-        "frontend/src/components/AudioToggle.tsx",
-        "frontend/src/components/RomanticLayout.tsx",
-        "frontend/src/components/screens/QuizScreen.tsx",
-        "frontend/src/components/screens/ValentineProposalScreen.tsx",
-        "frontend/src/context/AudioControllerContext.tsx"
+        "frontend/src/components/screens/ValentineProposalScreen.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -37,7 +33,25 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-19"
+        "REQ-31"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-update-the-share-button-toast-text-so-it-accurately-references-sharing-the-valentine-page-not-a-quiz-using-english-user-facing-text",
+      "featureTitle": "Update the Share button toast text so it accurately references sharing the Valentine page (not a quiz), using English user-facing text.",
+      "files": [
+        "frontend/src/components/ShareButton.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-32"
       ],
       "confidence": "high"
     }

@@ -11,11 +11,13 @@ export default function ShareButton() {
             await navigator.clipboard.writeText(window.location.href);
             setCopied(true);
             toast.success('Link copied to clipboard! 💖', {
-                description: 'Share this love quiz with others'
+                description: 'Share this Valentine page with your loved ones'
             });
             setTimeout(() => setCopied(false), 2000);
         } catch (error) {
-            toast.error('Failed to copy link');
+            toast.error('Could not copy link', {
+                description: 'Please try again or copy the URL manually from your browser'
+            });
         }
     };
 
@@ -24,7 +26,7 @@ export default function ShareButton() {
             onClick={handleShare}
             variant="outline"
             size="lg"
-            className="gap-2 hover:bg-romantic-blush hover:border-romantic-pink"
+            className="gap-2 hover:bg-romantic-blush hover:border-romantic-pink min-h-[44px] min-w-[120px] touch-manipulation"
         >
             {copied ? (
                 <>
@@ -40,4 +42,3 @@ export default function ShareButton() {
         </Button>
     );
 }
-

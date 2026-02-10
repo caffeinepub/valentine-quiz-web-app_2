@@ -48,41 +48,25 @@ export default {
                 card: {
                     DEFAULT: 'oklch(var(--card))',
                     foreground: 'oklch(var(--card-foreground))'
-                }
+                },
+                'romantic-pink': 'oklch(var(--romantic-pink))',
+                'romantic-blush': 'oklch(var(--romantic-blush))',
+                'romantic-beige': 'oklch(var(--romantic-beige))',
+                'romantic-red': 'oklch(var(--romantic-red))'
             },
             borderRadius: {
                 lg: 'var(--radius)',
-                md: 'calc(var(--radius) - 4px)',
-                sm: 'calc(var(--radius) - 8px)',
-                xl: 'calc(var(--radius) + 4px)',
-                '2xl': 'calc(var(--radius) + 8px)',
-                '3xl': 'calc(var(--radius) + 12px)'
-            },
-            boxShadow: {
-                xs: '0 1px 2px 0 rgba(0,0,0,0.05)',
-                romantic: '0 10px 40px -10px oklch(var(--romantic-pink) / 0.3)',
-                'romantic-lg': '0 20px 60px -15px oklch(var(--romantic-pink) / 0.4)'
+                md: 'calc(var(--radius) - 2px)',
+                sm: 'calc(var(--radius) - 4px)'
             },
             fontFamily: {
-                sans: ['Inter', 'system-ui', 'sans-serif'],
-                display: ['Inter', 'system-ui', 'sans-serif']
+                sans: ['Inter', 'system-ui', 'sans-serif']
             },
-            keyframes: {
-                'accordion-down': {
-                    from: { height: '0' },
-                    to: { height: 'var(--radix-accordion-content-height)' }
-                },
-                'accordion-up': {
-                    from: { height: 'var(--radix-accordion-content-height)' },
-                    to: { height: '0' }
-                }
-            },
-            animation: {
-                'accordion-down': 'accordion-down 0.2s ease-out',
-                'accordion-up': 'accordion-up 0.2s ease-out'
+            boxShadow: {
+                'romantic': '0 10px 40px -10px oklch(var(--romantic-pink) / 0.3)',
+                'romantic-lg': '0 20px 60px -15px oklch(var(--romantic-pink) / 0.4)'
             }
         }
     },
     plugins: [typography, containerQueries, animate]
 };
-

@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 7,
+  "projectStateVersion": 25,
   "summary": "Romantic Valentine Ask Web Page: a simple, single-purpose interactive page to ask the girlfriend to be the user’s Valentine with Yes/No options, a playful unclickable/moving No interaction, and a meme-style “Good choice” confirmation image on Yes; designed to run locally on iPad Chrome using plain HTML/CSS/JS.",
   "architectural_notes": [
     "No login required; app should be accessible via a shareable link.",
@@ -9,7 +9,10 @@
     "Deliver as a simple static HTML/CSS/JS page that can be opened and run locally in Chrome on an iPad (no backend required)."
   ],
   "known_issues": [
-    "Previous attempt to add the requested audio (tiny romantic harp sound / song) failed to build; needs retry."
+    "Previous attempt to add the requested audio (tiny romantic harp sound / song) failed to build; needs retry.",
+    "Yes/No button spacing on the Valentine prompt screen is still too large; user wants only a small gap (tight like \"Yes/NO\").",
+    "User reiterates: keep only a small/tight gap between the “Yes” and “No” buttons (little space) on the Valentine prompt screen.",
+    "User requests further reduction of spacing: bring the “No” option even closer to “Yes” (tighter gap) on the Valentine prompt screen."
   ],
   "isFixRequest": false,
   "existing_features": [
@@ -156,6 +159,110 @@
         "REQ-19"
       ],
       "version": 1
+    },
+    {
+      "id": "feature-add-a-visible-tap-friendly-share-button-to-the-valentine-proposal-screen-that-copies-the-current-page-url-to-the-clipboard-and-shows-a-confirmation-toast",
+      "title": "Add a visible, tap-friendly Share button to the Valentine proposal screen that copies the current page URL to the clipboard and shows a confirmation toast.",
+      "reqIds": [
+        "REQ-20"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-the-share-button-is-also-available-on-the-valentine-proposal-confirmation-view-after-the-user-clicks-yes-and-the-good-choice-view-is-displayed",
+      "title": "Ensure the Share button is also available on the Valentine proposal confirmation view (after the user clicks “Yes! 💕” and the “Good choice” view is displayed).",
+      "reqIds": [
+        "REQ-21"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-share-button-toast-copy-so-it-is-accurate-for-the-current-single-purpose-valentine-page-not-a-quiz-using-english-user-facing-text",
+      "title": "Update the Share button toast copy so it is accurate for the current single-purpose Valentine page (not a quiz), using English user-facing text.",
+      "reqIds": [
+        "REQ-22"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-there-is-visible-spacing-between-the-yes-and-no-choices-on-the-valentine-proposal-screen-so-they-do-not-appear-stacked-overlapping-and-have-comfortable-tap-separation-on-ipad-chrome-and-mobile-sizes-while-preserving-the-existing-moving-avoidance-behavior-of-the-no-button",
+      "title": "Ensure there is visible spacing between the “Yes” and “No” choices on the Valentine proposal screen so they do not appear stacked/overlapping and have comfortable tap separation on iPad Chrome and mobile sizes, while preserving the existing moving/avoidance behavior of the “No” button.",
+      "reqIds": [
+        "REQ-23"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-the-yes-no-button-cluster-in-the-teasing-result-screen-has-sufficient-spacing-between-the-yes-and-no-buttons-to-avoid-accidental-taps-clicks-as-the-buttons-resize-during-the-valentine-trick-interaction",
+      "title": "Ensure the Yes/No button cluster in the teasing result screen has sufficient spacing between the “Yes 💖” and “No 😈” buttons to avoid accidental taps/clicks as the buttons resize during the Valentine Trick interaction.",
+      "reqIds": [
+        "REQ-24"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-reduce-the-horizontal-vertical-gap-between-the-yes-button-and-the-reserved-no-button-placeholder-on-the-valentine-proposal-screen-so-the-two-choices-appear-only-slightly-separated-tight-like-yes-no-while-keeping-the-layout-responsive-and-preserving-the-moving-avoidance-behavior-of-the-actual-no-button",
+      "title": "Reduce the horizontal/vertical gap between the “Yes! 💕” button and the reserved “No” button placeholder on the Valentine proposal screen so the two choices appear only slightly separated (tight like “Yes/NO”), while keeping the layout responsive and preserving the moving/avoidance behavior of the actual “No” button.",
+      "reqIds": [
+        "REQ-25"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-valentine-proposal-screen-s-yes-no-choice-row-to-visually-read-as-yes-or-no-by-adding-a-visible-separator-label-or-between-the-yes-button-and-the-reserved-no-placeholder-area-while-keeping-the-existing-moving-avoidance-behavior-of-the-actual-no-button-and-maintaining-a-small-comfortable-gap-between-the-choices-on-mobile-and-ipad-chrome",
+      "title": "Update the Valentine proposal screen’s Yes/No choice row to visually read as “Yes or No” by adding a visible separator label “or” between the “Yes! 💕” button and the reserved “No” placeholder area, while keeping the existing moving/avoidance behavior of the actual “No” button and maintaining a small, comfortable gap between the choices on mobile and iPad Chrome.",
+      "reqIds": [
+        "REQ-26"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-reduce-the-visual-spacing-between-the-yes-choice-and-the-no-choice-area-on-the-valentine-proposal-screen-so-the-choices-appear-only-slightly-separated-little-space-while-keeping-the-existing-moving-avoidance-behavior-of-the-actual-no-button-and-keeping-the-separator-text-or-readable",
+      "title": "Reduce the visual spacing between the “Yes! 💕” choice and the “No” choice area on the Valentine proposal screen so the choices appear only slightly separated (little space), while keeping the existing moving/avoidance behavior of the actual “No” button and keeping the separator text “or” readable.",
+      "reqIds": [
+        "REQ-27"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-on-the-valentine-proposal-screen-reduce-the-visual-spacing-between-the-yes-button-the-separator-text-or-and-the-reserved-no-placeholder-area-so-that-the-no-option-appears-a-little-bit-closer-to-yes-than-it-currently-does-while-keeping-the-no-button-s-moving-avoidance-behavior-working-and-keeping-the-layout-responsive-on-mobile-and-ipad-chrome",
+      "title": "On the Valentine proposal screen, reduce the visual spacing between the “Yes! 💕” button, the separator text “or”, and the reserved “No” placeholder area so that the “No” option appears a little bit closer to “Yes” than it currently does, while keeping the “No” button’s moving/avoidance behavior working and keeping the layout responsive on mobile and iPad Chrome.",
+      "reqIds": [
+        "REQ-28"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-revert-the-application-to-match-the-previously-delivered-app-draft-version-3-exactly-restore-version-3-look-and-behavior-undoing-changes-introduced-in-later-drafts-e-g-version-9-spacing-layout-tweaks-this-rollback-must-include-the-full-user-visible-flow-screen-content-interactions-animations-and-any-related-assets-so-the-running-app-behaves-the-same-as-version-3",
+      "title": "Revert the application to match the previously delivered \"App draft Version 3\" exactly (restore Version 3 look and behavior), undoing changes introduced in later drafts (e.g., Version 9 spacing/layout tweaks). This rollback must include the full user-visible flow, screen content, interactions/animations, and any related assets so the running app behaves the same as Version 3.",
+      "reqIds": [
+        "REQ-29"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-render-a-visible-tap-friendly-share-button-on-the-valentine-proposal-screen-the-will-you-be-my-valentine-view-that-copies-the-current-page-url-to-the-clipboard-and-shows-a-confirmation-toast",
+      "title": "Render a visible, tap-friendly \"Share\" button on the Valentine proposal screen (the \"Will You Be My Valentine?\" view) that copies the current page URL to the clipboard and shows a confirmation toast.",
+      "reqIds": [
+        "REQ-30"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-render-the-same-share-button-on-the-valentine-proposal-confirmation-view-the-good-choice-success-view-shown-after-tapping-yes",
+      "title": "Render the same \"Share\" button on the Valentine proposal confirmation view (the \"Good Choice\" success view shown after tapping \"Yes! 💕\").",
+      "reqIds": [
+        "REQ-31"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-share-button-toast-text-so-it-accurately-references-sharing-the-valentine-page-not-a-quiz-using-english-user-facing-text",
+      "title": "Update the Share button toast text so it accurately references sharing the Valentine page (not a quiz), using English user-facing text.",
+      "reqIds": [
+        "REQ-32"
+      ],
+      "version": 1
     }
   ],
   "new_feature_requests": [
@@ -220,6 +327,30 @@
         "REQ-18"
       ],
       "status": "pending"
+    },
+    {
+      "id": "AR-12",
+      "summary": "Add an in-page “Share” button that copies the current page URL to clipboard and shows a brief confirmation message (tap-friendly for iPad Chrome)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-13",
+      "summary": "Add visible spacing/gap between the “Yes” and “No” buttons on the Valentine prompt screen (improve layout and tap separation)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-14",
+      "summary": "Update the Valentine prompt button row to include a visible separator label like “or” between the Yes and No choices (e.g., “Yes or No”)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-15",
+      "summary": "Roll back/revert the app to the previously delivered Version 3 (restore Version 3 look and behavior)",
+      "reqIds": [],
+      "status": "in_progress"
     }
   ],
   "gameProjectType": "none",

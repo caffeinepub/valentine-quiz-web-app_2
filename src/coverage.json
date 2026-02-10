@@ -1,22 +1,20 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-10T18:37:06.911Z",
+  "generatedAt": "2026-02-10T19:40:45.609Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
     "total": 3,
-    "implemented": 2,
+    "implemented": 3,
     "items": [
       {
-        "id": "REQ-17",
-        "summary": "Add a tiny romantic harp sound effect and play it when the user clicks/taps the “Yes! 💕” button on the Valentine proposal screen, but only when audio is enabled via the existing audio toggle (audio must remain off by default until enabled).",
+        "id": "REQ-30",
+        "summary": "Render a visible, tap-friendly \"Share\" button on the Valentine proposal screen (the \"Will You Be My Valentine?\" view) that copies the current page URL to the clipboard and shows a confirmation toast.",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/public/assets/audio/sfx-harp-tiny.mp3",
-          "frontend/src/hooks/useAudioController.ts",
           "frontend/src/components/screens/ValentineProposalScreen.tsx"
         ],
         "matchedFiles": [
@@ -24,32 +22,25 @@
         ]
       },
       {
-        "id": "REQ-18",
-        "summary": "Ensure the romantic background song (looping background music) is present as a local static audio asset and is used by the existing audio controller so that when the user enables audio, the background song starts playing and loops; when audio is disabled, it stops.",
-        "status": "missing",
-        "plannedFiles": [
-          "frontend/public/assets/audio/romantic-bg.mp3",
-          "frontend/src/hooks/useAudioController.ts"
-        ],
-        "matchedFiles": []
-      },
-      {
-        "id": "REQ-19",
-        "summary": "Wire the Valentine proposal screen to the audio system so the “Yes” click can trigger the harp SFX without duplicating independent audio controller state across components.",
+        "id": "REQ-31",
+        "summary": "Render the same \"Share\" button on the Valentine proposal confirmation view (the \"Good Choice\" success view shown after tapping \"Yes! 💕\").",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/context/AudioControllerContext.tsx",
-          "frontend/src/components/AudioToggle.tsx",
-          "frontend/src/components/RomanticLayout.tsx",
-          "frontend/src/components/screens/QuizScreen.tsx",
           "frontend/src/components/screens/ValentineProposalScreen.tsx"
         ],
         "matchedFiles": [
-          "frontend/src/context/AudioControllerContext.tsx",
-          "frontend/src/components/AudioToggle.tsx",
-          "frontend/src/components/RomanticLayout.tsx",
-          "frontend/src/components/screens/QuizScreen.tsx",
           "frontend/src/components/screens/ValentineProposalScreen.tsx"
+        ]
+      },
+      {
+        "id": "REQ-32",
+        "summary": "Update the Share button toast text so it accurately references sharing the Valentine page (not a quiz), using English user-facing text.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/ShareButton.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/ShareButton.tsx"
         ]
       }
     ]
@@ -59,11 +50,8 @@
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
-    "frontend/src/components/AudioToggle.tsx",
-    "frontend/src/components/RomanticLayout.tsx",
-    "frontend/src/components/screens/QuizScreen.tsx",
+    "frontend/src/components/ShareButton.tsx",
     "frontend/src/components/screens/ValentineProposalScreen.tsx",
-    "frontend/src/context/AudioControllerContext.tsx",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",

@@ -1,89 +1,52 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Valentine page: local looping background music + harp SFX on “Yes” using shared audio state",
+  "title": "Add Share button to Valentine proposal + success views and fix toast copy",
   "requirements": [
     {
-      "id": "REQ-17",
-      "summary": "Add a tiny romantic harp SFX that plays on each “Yes! 💕” tap only when audio is enabled, loaded from a local static asset.",
+      "id": "REQ-30",
+      "summary": "Add a visible, tap-friendly Share button to the Valentine proposal screen that copies the current URL and shows a toast confirmation.",
       "acceptanceCriteria": [
-        "With audio toggle OFF, tapping “Yes! 💕” does not play any sound.",
-        "With audio toggle ON, tapping “Yes! 💕” plays a short “tiny romantic harp” sound once per tap (no overlap beyond expected rapid taps).",
-        "The harp sound effect is loaded from a local static asset under frontend/public/assets/audio (no external URLs).",
-        "Behavior works on iPad Chrome using a tap/click interaction (no reliance on hover)."
+        "On the Valentine proposal screen, a clearly visible \"Share\" button is present without requiring any login.",
+        "Tapping/clicking the Share button copies window.location.href to the clipboard.",
+        "After copying succeeds, a toast confirmation is shown to the user.",
+        "The Share button is usable on iPad Chrome (comfortable tap target, no hover required)."
       ],
       "file_operations": [
         {
-          "path": "frontend/public/assets/audio/sfx-harp-tiny.mp3",
-          "operation": "create",
-          "description": "Add the local “tiny romantic harp” SFX audio file to be served as a static asset (no external fetches)."
-        },
-        {
-          "path": "frontend/src/hooks/useAudioController.ts",
-          "operation": "modify",
-          "description": "Extend the audio controller to preload/register the new harp SFX from the local static asset path and expose a dedicated play function that resets playback position per tap to avoid unintended overlap."
-        },
-        {
           "path": "frontend/src/components/screens/ValentineProposalScreen.tsx",
           "operation": "modify",
-          "description": "Trigger the harp SFX on the “Yes! 💕” button tap via the shared audio system (respecting enabled/disabled state), ensuring it works for tap-first interactions (iPad Chrome)."
+          "description": "Import and render the existing ShareButton on the \"Will You Be My Valentine?\" view (non-success state). Place it in a clearly visible location with layout classes that ensure a comfortable tap target on touch devices (no hover dependency). Verify the component's usage instructions before implementing."
         }
       ]
     },
     {
-      "id": "REQ-18",
-      "summary": "Ensure the local looping romantic background song is present and controlled by the existing audio controller (play on enable, pause on disable).",
+      "id": "REQ-31",
+      "summary": "Add the same Share button to the Valentine proposal confirmation (Good Choice) success view with identical copy+toast behavior.",
       "acceptanceCriteria": [
-        "A background music file exists at the path expected by the app (currently /assets/audio/romantic-bg.mp3) under frontend/public/assets/audio.",
-        "Toggling audio ON starts background playback (subject to browser autoplay rules; must work after user interaction).",
-        "Toggling audio OFF pauses background playback.",
-        "No external audio fetches are used."
+        "After tapping \"Yes! 💕\" and entering the \"Good Choice\" view, a \"Share\" button is visible and functional.",
+        "The Share button on the success view copies the current page URL and shows the same confirmation toast behavior."
       ],
       "file_operations": [
         {
-          "path": "frontend/public/assets/audio/romantic-bg.mp3",
-          "operation": "create",
-          "description": "Add the local romantic background music file at the exact static path the app expects so it can be loaded without external URLs."
-        },
-        {
-          "path": "frontend/src/hooks/useAudioController.ts",
+          "path": "frontend/src/components/screens/ValentineProposalScreen.tsx",
           "operation": "modify",
-          "description": "Confirm the controller uses the local romantic background music asset, loops it, starts playback when audio is enabled (after user interaction), and pauses when disabled (audio off by default)."
+          "description": "In the showSuccess (\"Good Choice\") render branch, import/render ShareButton with a prominent placement consistent with the success view content. Ensure it remains tap-friendly and uses the same toast behavior. Verify the component's usage instructions before implementing."
         }
       ]
     },
     {
-      "id": "REQ-19",
-      "summary": "Use a single shared audio-enabled state so the Valentine “Yes” SFX and the top-right AudioToggle always stay in sync without duplicating audio controller instances.",
+      "id": "REQ-32",
+      "summary": "Update Share button toast text to reference sharing the Valentine page (not a quiz) and keep success/failure messages in English with clear guidance on failure.",
       "acceptanceCriteria": [
-        "The ValentineProposalScreen “Yes” action triggers the harp SFX through the same enabled/disabled state controlled by the top-right AudioToggle.",
-        "There is a single source of truth for audio enabled state for the page (toggling the AudioToggle reliably affects whether the “Yes” SFX plays)."
+        "On successful copy, the toast title remains in English and the toast description does not mention \"quiz\".",
+        "On copy failure, the error toast remains in English and instructs the user to try again or copy the URL manually."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/context/AudioControllerContext.tsx",
-          "operation": "create",
-          "description": "Create a React context/provider that instantiates the audio controller once and exposes a single shared source of truth for audio enabled state and play controls across the app."
-        },
-        {
-          "path": "frontend/src/components/AudioToggle.tsx",
+          "path": "frontend/src/components/ShareButton.tsx",
           "operation": "modify",
-          "description": "Switch AudioToggle to consume the shared audio context (instead of creating its own controller instance) so toggling reliably controls global audio behavior."
-        },
-        {
-          "path": "frontend/src/components/RomanticLayout.tsx",
-          "operation": "modify",
-          "description": "Wrap the layout content with the audio controller provider so all screens (including ValentineProposalScreen) share the same audio enabled state and controls."
-        },
-        {
-          "path": "frontend/src/components/screens/QuizScreen.tsx",
-          "operation": "modify",
-          "description": "Update QuizScreen to consume the shared audio context rather than instantiating a separate audio controller, preserving existing SFX behavior under the single global state."
-        },
-        {
-          "path": "frontend/src/components/screens/ValentineProposalScreen.tsx",
-          "operation": "modify",
-          "description": "Consume the shared audio context in ValentineProposalScreen so the “Yes” harp SFX obeys the same AudioToggle enabled/disabled state (no duplicated audio state)."
+          "description": "Update the success toast description to reference sharing the Valentine page (remove any mention of a quiz) and keep English user-facing strings. Keep/adjust failure toast copy in English to instruct retry or manual URL copy. Consider adding a safe clipboard fallback for iPad/iOS environments while still copying window.location.href (no external share integrations). Verify the component's usage instructions before implementing."
         }
       ]
     }

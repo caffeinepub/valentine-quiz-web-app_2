@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '../ui/card';
 import { Button } from '../ui/button';
-import { Heart } from 'lucide-react';
 import ShareButton from '../ShareButton';
 
 interface ResultTeaseScreenProps {
@@ -55,7 +54,7 @@ export default function ResultTeaseScreen({ score, onValentineAccepted, onRestar
                             {getPromptText()}
                         </h3>
                         
-                        <div className="flex items-center justify-center gap-4 flex-wrap">
+                        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                             <Button
                                 onClick={onValentineAccepted}
                                 size="lg"
@@ -102,4 +101,3 @@ export default function ResultTeaseScreen({ score, onValentineAccepted, onRestar
         </div>
     );
 }
-

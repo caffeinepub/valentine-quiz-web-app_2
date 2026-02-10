@@ -22,7 +22,7 @@ export default function RomanticLayout({ children }: RomanticLayoutProps) {
                     <AudioToggle />
                 </div>
 
-                <main className="relative z-10 min-h-screen flex flex-col items-center justify-center p-4 py-12">
+                <main className="relative z-10 min-h-screen flex flex-col items-center justify-center p-4">
                     {children}
                 </main>
 

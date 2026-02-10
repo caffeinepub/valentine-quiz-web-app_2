@@ -4,61 +4,61 @@
 
 @layer base {
     :root {
-        --radius: 1.5rem;
+        --radius: 0.5rem;
         
-        /* Romantic pastel palette - light mode */
-        --background: 0.98 0.02 15;
-        --foreground: 0.25 0.03 350;
-        --card: 1 0.015 10;
-        --card-foreground: 0.25 0.03 350;
-        --popover: 1 0.015 10;
-        --popover-foreground: 0.25 0.03 350;
-        --primary: 0.65 0.18 350;
+        /* Romantic pink and white palette - light mode */
+        --background: 0.99 0.01 350;
+        --foreground: 0.30 0.04 350;
+        --card: 1 0.01 350;
+        --card-foreground: 0.30 0.04 350;
+        --popover: 1 0.01 350;
+        --popover-foreground: 0.30 0.04 350;
+        --primary: 0.70 0.20 350;
         --primary-foreground: 1 0.01 10;
-        --secondary: 0.92 0.04 25;
+        --secondary: 0.95 0.03 350;
         --secondary-foreground: 0.35 0.04 350;
-        --muted: 0.95 0.02 20;
+        --muted: 0.94 0.02 340;
         --muted-foreground: 0.55 0.03 340;
-        --accent: 0.88 0.12 5;
+        --accent: 0.90 0.10 350;
         --accent-foreground: 0.35 0.04 350;
         --destructive: 0.60 0.20 15;
         --destructive-foreground: 1 0.01 10;
-        --border: 0.90 0.03 340;
-        --input: 0.90 0.03 340;
-        --ring: 0.65 0.18 350;
+        --border: 0.92 0.02 340;
+        --input: 0.92 0.02 340;
+        --ring: 0.70 0.20 350;
         
-        /* Romantic colors */
-        --romantic-pink: 0.85 0.15 350;
-        --romantic-blush: 0.90 0.08 15;
-        --romantic-beige: 0.88 0.04 40;
-        --romantic-red: 0.60 0.22 10;
+        /* Romantic colors - pink and white theme */
+        --romantic-pink: 0.85 0.18 350;
+        --romantic-blush: 0.95 0.05 350;
+        --romantic-beige: 0.97 0.02 20;
+        --romantic-red: 0.65 0.25 10;
     }
 
     .dark {
-        --background: 0.20 0.03 340;
+        --background: 0.25 0.04 340;
         --foreground: 0.98 0.01 10;
-        --card: 0.25 0.03 340;
+        --card: 0.28 0.04 340;
         --card-foreground: 0.98 0.01 10;
-        --popover: 0.25 0.03 340;
+        --popover: 0.28 0.04 340;
         --popover-foreground: 0.98 0.01 10;
-        --primary: 0.75 0.15 350;
+        --primary: 0.75 0.18 350;
         --primary-foreground: 0.20 0.03 340;
-        --secondary: 0.30 0.04 340;
+        --secondary: 0.32 0.04 340;
         --secondary-foreground: 0.98 0.01 10;
-        --muted: 0.30 0.03 340;
+        --muted: 0.32 0.03 340;
         --muted-foreground: 0.70 0.02 340;
-        --accent: 0.35 0.04 340;
+        --accent: 0.38 0.05 340;
         --accent-foreground: 0.98 0.01 10;
         --destructive: 0.65 0.20 15;
         --destructive-foreground: 0.98 0.01 10;
         --border: 0.35 0.03 340;
         --input: 0.35 0.03 340;
-        --ring: 0.75 0.15 350;
+        --ring: 0.75 0.18 350;
         
-        --romantic-pink: 0.75 0.15 350;
-        --romantic-blush: 0.70 0.10 15;
+        --romantic-pink: 0.75 0.18 350;
+        --romantic-blush: 0.70 0.10 350;
         --romantic-beige: 0.60 0.05 40;
-        --romantic-red: 0.65 0.20 10;
+        --romantic-red: 0.70 0.22 10;
     }
 
     * {
@@ -75,7 +75,7 @@
     .romantic-gradient {
         background: linear-gradient(135deg, 
             oklch(var(--romantic-blush)) 0%, 
-            oklch(var(--romantic-pink) / 0.3) 50%, 
+            oklch(var(--romantic-pink) / 0.15) 50%, 
             oklch(var(--romantic-beige)) 100%);
     }
     
@@ -123,7 +123,7 @@
 
 @keyframes pulse-heart {
     0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.1); }
+    50% { transform: scale(1.15); }
 }
 
 @keyframes sparkle {
@@ -173,4 +173,3 @@
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-duration: 200ms;
 }
-

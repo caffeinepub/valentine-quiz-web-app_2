@@ -1,74 +1,70 @@
 {
   "kind": "build_request",
-  "title": "Add romantic background song and tiny harp sound effect to the Valentine page",
+  "title": "Add Share button to the Valentine proposal page (and fix Share toast copy)",
   "priority": "normal",
   "requirements": [
     {
-      "id": "REQ-17",
-      "text": "Add a tiny romantic harp sound effect and play it when the user clicks/taps the “Yes! 💕” button on the Valentine proposal screen, but only when audio is enabled via the existing audio toggle (audio must remain off by default until enabled).",
+      "id": "REQ-30",
+      "text": "Render a visible, tap-friendly \"Share\" button on the Valentine proposal screen (the \"Will You Be My Valentine?\" view) that copies the current page URL to the clipboard and shows a confirmation toast.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-user-yes-pls-try-add-song"
+          "recent-messages-4"
         ],
         "quotes": [
-          "Yes pls try to add the song"
+          "Give the share button in it"
         ]
       },
       "acceptanceCriteria": [
-        "With audio toggle OFF, tapping “Yes! 💕” does not play any sound.",
-        "With audio toggle ON, tapping “Yes! 💕” plays a short “tiny romantic harp” sound once per tap (no overlap beyond expected rapid taps).",
-        "The harp sound effect is loaded from a local static asset under frontend/public/assets/audio (no external URLs).",
-        "Behavior works on iPad Chrome using a tap/click interaction (no reliance on hover)."
+        "On the Valentine proposal screen, a clearly visible \"Share\" button is present without requiring any login.",
+        "Tapping/clicking the Share button copies window.location.href to the clipboard.",
+        "After copying succeeds, a toast confirmation is shown to the user.",
+        "The Share button is usable on iPad Chrome (comfortable tap target, no hover required)."
       ]
     },
     {
-      "id": "REQ-18",
-      "text": "Ensure the romantic background song (looping background music) is present as a local static audio asset and is used by the existing audio controller so that when the user enables audio, the background song starts playing and loops; when audio is disabled, it stops.",
+      "id": "REQ-31",
+      "text": "Render the same \"Share\" button on the Valentine proposal confirmation view (the \"Good Choice\" success view shown after tapping \"Yes! 💕\").",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-user-yes-pls-try-add-song"
+          "recent-messages-4"
         ],
         "quotes": [
-          "Yes pls try to add the song"
+          "Give the share button in it"
         ]
       },
       "acceptanceCriteria": [
-        "A background music file exists at the path expected by the app (currently /assets/audio/romantic-bg.mp3) under frontend/public/assets/audio.",
-        "Toggling audio ON starts background playback (subject to browser autoplay rules; must work after user interaction).",
-        "Toggling audio OFF pauses background playback.",
-        "No external audio fetches are used."
+        "After tapping \"Yes! 💕\" and entering the \"Good Choice\" view, a \"Share\" button is visible and functional.",
+        "The Share button on the success view copies the current page URL and shows the same confirmation toast behavior."
       ]
     },
     {
-      "id": "REQ-19",
-      "text": "Wire the Valentine proposal screen to the audio system so the “Yes” click can trigger the harp SFX without duplicating independent audio controller state across components.",
+      "id": "REQ-32",
+      "text": "Update the Share button toast text so it accurately references sharing the Valentine page (not a quiz), using English user-facing text.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-user-yes-pls-try-add-song"
+          "recent-messages-4"
         ],
         "quotes": [
-          "Yes pls try to add the song"
+          "Give the share button in it"
         ]
       },
       "acceptanceCriteria": [
-        "The ValentineProposalScreen “Yes” action triggers the harp SFX through the same enabled/disabled state controlled by the top-right AudioToggle.",
-        "There is a single source of truth for audio enabled state for the page (toggling the AudioToggle reliably affects whether the “Yes” SFX plays)."
+        "On successful copy, the toast title remains in English and the toast description does not mention \"quiz\".",
+        "On copy failure, the error toast remains in English and instructs the user to try again or copy the URL manually."
       ]
     }
   ],
   "constraints": [
-    "Do not modify any files under frontend/src/components/ui (read-only UI component sources).",
-    "Do not fetch audio from external URLs; audio must be served as local static assets (e.g., under frontend/public/assets/audio).",
-    "Audio must be off by default until the user enables it via the existing audio toggle.",
-    "Maintain compatibility with iPad Chrome (tap-first interactions; avoid hover-only behavior for audio)."
+    "Do not fetch or render external images/URLs for sharing; sharing must copy the current page URL to the clipboard.",
+    "Do not modify any files under frontend/src/components/ui (these are immutable vendor UI components).",
+    "Keep the app accessible without authentication; the share interaction must work for anonymous users."
   ],
   "nonGoals": [
-    "Adding new authentication flows (Internet Identity) or requiring login to use the page.",
-    "Backend changes in Motoko (this request should be implementable purely on the frontend with static assets).",
-    "Adding additional new UI screens beyond wiring audio into the existing Valentine proposal flow."
+    "Adding social-network-specific share integrations (e.g., Facebook/Twitter share APIs).",
+    "Adding backend endpoints or persistence related to sharing."
   ],
   "imageRequirements": {
     "required": [],

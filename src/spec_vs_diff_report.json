@@ -1,44 +1,39 @@
 {
   "kind": "spec_vs_diff_report",
   "version": "1.0",
-  "generatedAt": "2026-02-10T18:37:06.908Z",
-  "summary": "Implemented a new shared AudioControllerContext with background music (/assets/audio/romantic-bg.mp3) and a harp SFX (/assets/audio/sfx-harp-tiny.mp3), wired AudioToggle and ValentineProposalScreen to it, and updated QuizScreen to play additional SFX. However, the diff summary does not show the required local static audio assets being added under frontend/public/assets/audio.",
+  "generatedAt": "2026-02-10T19:40:45.606Z",
+  "summary": "Diff adds a reusable ShareButton component that copies window.location.href to the clipboard and shows updated Valentine-specific toast copy. ValentineProposalScreen is updated to render ShareButton in the success (\"Good Choice\") view, but the provided truncated diff does not show the proposal (\"Will You Be My Valentine?\") view rendering a Share button, so REQ-30 cannot be confirmed from available evidence. Diff also appears to adjust \"No\" button interaction handling for touch/hover, which was not requested in this BuildRequest.",
   "missing_requirements": [
     {
-      "id": "REQ-17",
-      "requirement": "The harp sound effect is loaded from a local static asset under frontend/public/assets/audio (no external URLs).",
-      "reason": "Code references a local harp file path (/assets/audio/sfx-harp-tiny.mp3), but the diff summary shows no added/modified files under frontend/public/assets/audio to actually provide the asset.",
+      "id": "REQ-30",
+      "requirement": "Render a visible, tap-friendly \"Share\" button on the Valentine proposal screen (\"Will You Be My Valentine?\" view) that copies the current page URL to the clipboard and shows a confirmation toast.",
+      "reason": "The truncated ValentineProposalScreen.tsx diff does not include the section of the proposal view where the buttons are rendered, so there is no explicit evidence that <ShareButton /> is rendered on the \"Will You Be My Valentine?\" screen.",
       "evidence": [
-        "frontend/src/context/AudioControllerContext.tsx"
-      ]
-    },
-    {
-      "id": "REQ-18",
-      "requirement": "A background music file exists at the path expected by the app (currently /assets/audio/romantic-bg.mp3) under frontend/public/assets/audio.",
-      "reason": "Background music is instantiated from /assets/audio/romantic-bg.mp3, but the diff summary does not show adding that file (or any audio files) under frontend/public/assets/audio.",
-      "evidence": [
-        "frontend/src/context/AudioControllerContext.tsx"
+        "frontend/src/components/screens/ValentineProposalScreen.tsx (truncated)"
       ]
     }
   ],
   "hallucinated_features": [
     {
-      "description": "Added additional sound effects (select/correct/celebrate) and wired them into the quiz flow.",
-      "reason": "The BuildRequest only asked for romantic background music and a tiny harp SFX on the Valentine “Yes! 💕” action; it did not request quiz answer SFX.",
+      "description": "Updated \"No\" interaction handling to support both hover and touch events (iPad compatibility) via a unified handler and movement state/timer.",
+      "reason": "The BuildRequest is focused on adding Share buttons and updating share toast copy; it does not request changes to the \"No\" button behavior or interaction model.",
       "evidence": [
-        "frontend/src/context/AudioControllerContext.tsx",
-        "frontend/src/components/screens/QuizScreen.tsx"
+        "frontend/src/components/screens/ValentineProposalScreen.tsx (truncated)"
+      ]
+    },
+    {
+      "description": "Share button UI includes a temporary \"Copied!\" state with a check icon and a 2-second reset timer.",
+      "reason": "Requirements only specify copying the URL and showing a confirmation toast; they do not request changing the button label/state after copying.",
+      "evidence": [
+        "frontend/src/components/ShareButton.tsx"
       ]
     }
   ],
-  "confidence": 0.7,
+  "confidence": 0.62,
   "changed_files": [
     "frontend-file-summaries.txt",
-    "frontend/src/components/AudioToggle.tsx",
-    "frontend/src/components/RomanticLayout.tsx",
-    "frontend/src/components/screens/QuizScreen.tsx",
+    "frontend/src/components/ShareButton.tsx",
     "frontend/src/components/screens/ValentineProposalScreen.tsx",
-    "frontend/src/context/AudioControllerContext.tsx",
     "project_state.json"
   ]
 }
