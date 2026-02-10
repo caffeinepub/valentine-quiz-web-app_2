@@ -1,0 +1,91 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Valentine page: local looping background music + harp SFX on “Yes” using shared audio state",
+  "requirements": [
+    {
+      "id": "REQ-17",
+      "summary": "Add a tiny romantic harp SFX that plays on each “Yes! 💕” tap only when audio is enabled, loaded from a local static asset.",
+      "acceptanceCriteria": [
+        "With audio toggle OFF, tapping “Yes! 💕” does not play any sound.",
+        "With audio toggle ON, tapping “Yes! 💕” plays a short “tiny romantic harp” sound once per tap (no overlap beyond expected rapid taps).",
+        "The harp sound effect is loaded from a local static asset under frontend/public/assets/audio (no external URLs).",
+        "Behavior works on iPad Chrome using a tap/click interaction (no reliance on hover)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/public/assets/audio/sfx-harp-tiny.mp3",
+          "operation": "create",
+          "description": "Add the local “tiny romantic harp” SFX audio file to be served as a static asset (no external fetches)."
+        },
+        {
+          "path": "frontend/src/hooks/useAudioController.ts",
+          "operation": "modify",
+          "description": "Extend the audio controller to preload/register the new harp SFX from the local static asset path and expose a dedicated play function that resets playback position per tap to avoid unintended overlap."
+        },
+        {
+          "path": "frontend/src/components/screens/ValentineProposalScreen.tsx",
+          "operation": "modify",
+          "description": "Trigger the harp SFX on the “Yes! 💕” button tap via the shared audio system (respecting enabled/disabled state), ensuring it works for tap-first interactions (iPad Chrome)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-18",
+      "summary": "Ensure the local looping romantic background song is present and controlled by the existing audio controller (play on enable, pause on disable).",
+      "acceptanceCriteria": [
+        "A background music file exists at the path expected by the app (currently /assets/audio/romantic-bg.mp3) under frontend/public/assets/audio.",
+        "Toggling audio ON starts background playback (subject to browser autoplay rules; must work after user interaction).",
+        "Toggling audio OFF pauses background playback.",
+        "No external audio fetches are used."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/public/assets/audio/romantic-bg.mp3",
+          "operation": "create",
+          "description": "Add the local romantic background music file at the exact static path the app expects so it can be loaded without external URLs."
+        },
+        {
+          "path": "frontend/src/hooks/useAudioController.ts",
+          "operation": "modify",
+          "description": "Confirm the controller uses the local romantic background music asset, loops it, starts playback when audio is enabled (after user interaction), and pauses when disabled (audio off by default)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-19",
+      "summary": "Use a single shared audio-enabled state so the Valentine “Yes” SFX and the top-right AudioToggle always stay in sync without duplicating audio controller instances.",
+      "acceptanceCriteria": [
+        "The ValentineProposalScreen “Yes” action triggers the harp SFX through the same enabled/disabled state controlled by the top-right AudioToggle.",
+        "There is a single source of truth for audio enabled state for the page (toggling the AudioToggle reliably affects whether the “Yes” SFX plays)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/context/AudioControllerContext.tsx",
+          "operation": "create",
+          "description": "Create a React context/provider that instantiates the audio controller once and exposes a single shared source of truth for audio enabled state and play controls across the app."
+        },
+        {
+          "path": "frontend/src/components/AudioToggle.tsx",
+          "operation": "modify",
+          "description": "Switch AudioToggle to consume the shared audio context (instead of creating its own controller instance) so toggling reliably controls global audio behavior."
+        },
+        {
+          "path": "frontend/src/components/RomanticLayout.tsx",
+          "operation": "modify",
+          "description": "Wrap the layout content with the audio controller provider so all screens (including ValentineProposalScreen) share the same audio enabled state and controls."
+        },
+        {
+          "path": "frontend/src/components/screens/QuizScreen.tsx",
+          "operation": "modify",
+          "description": "Update QuizScreen to consume the shared audio context rather than instantiating a separate audio controller, preserving existing SFX behavior under the single global state."
+        },
+        {
+          "path": "frontend/src/components/screens/ValentineProposalScreen.tsx",
+          "operation": "modify",
+          "description": "Consume the shared audio context in ValentineProposalScreen so the “Yes” harp SFX obeys the same AudioToggle enabled/disabled state (no duplicated audio state)."
+        }
+      ]
+    }
+  ]
+}

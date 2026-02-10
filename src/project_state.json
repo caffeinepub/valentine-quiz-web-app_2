@@ -1,0 +1,229 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 7,
+  "summary": "Romantic Valentine Ask Web Page: a simple, single-purpose interactive page to ask the girlfriend to be the user’s Valentine with Yes/No options, a playful unclickable/moving No interaction, and a meme-style “Good choice” confirmation image on Yes; designed to run locally on iPad Chrome using plain HTML/CSS/JS.",
+  "architectural_notes": [
+    "No login required; app should be accessible via a shareable link.",
+    "Mobile-first responsive UI with lightweight animations for performance.",
+    "Optional audio (music/sfx) should be user-friendly (e.g., can be muted) and not required for core flow.",
+    "Deliver as a simple static HTML/CSS/JS page that can be opened and run locally in Chrome on an iPad (no backend required)."
+  ],
+  "known_issues": [
+    "Previous attempt to add the requested audio (tiny romantic harp sound / song) failed to build; needs retry."
+  ],
+  "isFixRequest": false,
+  "existing_features": [
+    {
+      "id": "feature-create-a-cohesive-romantic-playful-visual-theme-and-apply-it-consistently-across-the-app-soft-pastel-gradients-pinks-beige-blush-red-rounded-card-ui-subtle-shadows-heart-motifs-smooth-transitions-and-cute-micro-interactions-ensure-the-overall-tone-feels-loving-funny-slightly-teasing-and-extremely-cute",
+      "title": "Create a cohesive romantic, playful visual theme and apply it consistently across the app: soft pastel gradients (pinks/beige/blush/red), rounded card UI, subtle shadows, heart motifs, smooth transitions, and cute micro-interactions; ensure the overall tone feels loving, funny, slightly teasing, and extremely cute.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-the-welcome-screen-as-the-app-entry-state-with-title-how-well-do-you-know-your-husband-subtitle-a-tiny-test-made-with-love-just-for-you-and-a-large-primary-cta-button-labeled-start-the-love-test-that-starts-the-quiz",
+      "title": "Implement the Welcome Screen as the app entry state with: Title “How Well Do You Know Your Husband? 💖”, subtitle “A tiny test made with love just for you”, and a large primary CTA button labeled “Start the Love Test →” that starts the quiz.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-the-5-question-multiple-choice-quiz-flow-showing-one-question-at-a-time-in-a-cute-card-layout-with-a-progress-indicator-e-g-question-1-5-include-hover-tap-animations-on-answer-options-and-show-a-heart-confetti-feedback-animation-when-the-selected-option-is-correct",
+      "title": "Implement the 5-question multiple-choice quiz flow showing one question at a time in a cute card layout with a progress indicator (e.g., “Question 1/5”). Include hover/tap animations on answer options and show a heart/confetti feedback animation when the selected option is correct.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-hardcode-the-quiz-questions-options-and-correct-answers-exactly-as-specified-q1-when-did-we-meet-correct-7th-may-2024-q2-where-was-our-first-date-correct-riverfront-q3-what-was-my-first-gift-to-you-correct-flower-showpiece-q4-what-do-you-like-about-me-the-most-correct-everything-q5-when-did-i-propose-you-to-be-my-girlfriend-correct-4th-june",
+      "title": "Hardcode the quiz questions, options, and correct answers exactly as specified: Q1 When did we meet? (Correct: “7th May 2024”), Q2 Where was our first date? (Correct: “Riverfront”), Q3 What was my first gift to you? (Correct: “Flower showpiece”), Q4 What do you like about me the most? (Correct: “Everything”), Q5 When did I propose you to be my girlfriend? (Correct: “4th June”).",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-the-special-sparkle-animation-on-question-4-when-the-user-selects-the-option-everything-in-addition-to-any-correct-answer-feedback",
+      "title": "Add the special sparkle animation on Question 4 when the user selects the option “Everything” (in addition to any correct-answer feedback).",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-result-logic-and-screens-after-q5-submission-a-if-score-5-5-show-the-perfect-winning-screen-with-the-exact-text-omg-5-5-you-are-officially-the-best-wife-in-the-world-display-a-cute-romantic-cartoon-couple-meme-image-display-you-have-won-a-date-coupon-redeemable-for-one-full-day-of-love-food-cuddles-surprises-and-a-button-redeem-my-date-on-click-show-the-message-your-husband-will-contact-you-shortly-for-booking-b-if-score-5-show-a-fun-teasing-meme-image-not-mean-show-the-text-hmm-not-perfect-you-need-to-do-better-but-i-still-love-you-then-show-will-you-still-be-my-valentine-with-two-buttons-yes-and-no",
+      "title": "Implement result logic and screens after Q5 submission: (A) If score = 5/5 show the “Perfect” winning screen with the exact text “OMG 5/5!!! 😭💖\nYou are officially the BEST WIFE IN THE WORLD.”, display a cute romantic/cartoon couple meme image, display “🎟 You have won a DATE COUPON!\nRedeemable for: One full day of love, food, cuddles & surprises.” and a button “Redeem My Date 💌”. On click, show the message “Your husband will contact you shortly for booking 😉”. (B) If score < 5, show a fun teasing meme image (not mean), show the text “Hmm… not perfect 👀\nYou need to do better… but I still love you.” then show “Will you still be my Valentine? 💘” with two buttons: “Yes 💖” and “No 😈”.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-the-valentine-trick-interaction-on-the-5-score-result-screen-each-time-the-user-clicks-no-increase-the-size-prominence-of-the-yes-button-and-decrease-the-size-prominence-of-the-no-button-while-updating-the-prompt-text-in-escalating-steps-first-are-you-sure-then-you-have-no-escape-repeating-escalation-until-yes-fills-most-of-the-screen-and-no-becomes-very-small-and-hard-to-click-when-the-user-clicks-yes-at-any-time-show-the-final-celebration-screen-with-text-yay-you-are-my-valentine-forever-plus-confetti-hearts-romantic-animation",
+      "title": "Implement the “Valentine Trick” interaction on the <5 score result screen: each time the user clicks “No 😈”, increase the size/prominence of the “Yes 💖” button and decrease the size/prominence of the “No 😈” button while updating the prompt text in escalating steps: first “Are you sure?? 🥺”, then “You have no escape 😌”, repeating escalation until “Yes” fills most of the screen and “No” becomes very small and hard to click. When the user clicks “Yes 💖” at any time, show the final celebration screen with text “YAY!!! You are my Valentine forever 💖🌹” plus confetti + hearts + romantic animation.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-floating-hearts-background-effect-across-the-app-subtle-non-distracting-and-ensure-animations-are-smooth-no-jank-and-do-not-block-interaction-include-reduced-motion-handling-where-feasible-so-the-app-remains-usable-if-the-user-prefers-less-motion",
+      "title": "Add a floating hearts background effect across the app (subtle, non-distracting) and ensure animations are smooth (no jank) and do not block interaction; include reduced-motion handling where feasible so the app remains usable if the user prefers less motion.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-optional-audio-gentle-romantic-background-music-and-subtle-sound-effects-for-key-interactions-e-g-start-selecting-an-option-correct-answer-confetti-with-an-obvious-mute-unmute-control-and-audio-off-by-default-until-the-user-enables-it",
+      "title": "Implement optional audio: gentle romantic background music and subtle sound effects for key interactions (e.g., start, selecting an option, correct answer, confetti), with an obvious mute/unmute control and audio off by default until the user enables it.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-provide-a-shareable-link-affordance-add-a-share-button-or-equivalent-that-copies-the-current-page-url-to-clipboard-and-shows-a-small-confirmation-message-the-app-must-be-accessible-without-login-and-work-as-a-simple-client-side-experience",
+      "title": "Provide a shareable link affordance: add a “Share” button (or equivalent) that copies the current page URL to clipboard and shows a small confirmation message; the app must be accessible without login and work as a simple client-side experience.",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-generated-static-meme-illustration-images-as-local-assets-and-render-them-in-the-perfect-score-and-5-score-result-screens-do-not-fetch-from-external-urls-and-do-not-serve-through-the-backend-store-generated-files-under-frontend-public-assets-generated-and-reference-them-from-the-ui",
+      "title": "Add generated static meme/illustration images as local assets and render them in the perfect-score and <5-score result screens (do not fetch from external URLs and do not serve through the backend). Store generated files under frontend/public/assets/generated and reference them from the UI.",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-change-the-app-entry-experience-to-a-single-purpose-valentine-proposal-page-no-quiz-flow-that-asks-the-user-s-girlfriend-to-be-their-valentine-and-presents-exactly-two-choices-yes-and-no",
+      "title": "Change the app entry experience to a single-purpose Valentine proposal page (no quiz flow) that asks the user’s girlfriend to be their Valentine and presents exactly two choices: “Yes” and “No”.",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-the-playful-avoidance-interaction-for-the-no-option-when-the-user-hovers-the-cursor-over-the-no-button-the-no-button-moves-away-so-it-cannot-be-clicked-also-provide-a-touch-friendly-equivalent-so-the-same-behavior-works-on-ipad-chrome-where-hover-may-not-be-available",
+      "title": "Implement the playful avoidance interaction for the “No” option: when the user hovers the cursor over the “No” button, the “No” button moves away so it cannot be clicked; also provide a touch-friendly equivalent so the same behavior works on iPad Chrome (where hover may not be available).",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-when-the-user-clicks-taps-yes-replace-the-question-ui-with-a-confirmation-view-that-displays-a-local-static-meme-image-and-the-exact-user-facing-text-good-choice",
+      "title": "When the user clicks/taps “Yes”, replace the question UI with a confirmation view that displays a local static meme image and the exact user-facing text: “Good choice”.",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-the-valentine-proposal-page-uses-a-romantic-pink-and-white-color-scheme-and-remains-fully-interactive-and-responsive-on-ipad-chrome-mobile-first-sizing-comfortable-tap-targets-and-no-dependency-on-authentication",
+      "title": "Ensure the Valentine proposal page uses a romantic pink-and-white color scheme and remains fully interactive and responsive on iPad Chrome (mobile-first sizing, comfortable tap targets, and no dependency on authentication).",
+      "reqIds": [
+        "REQ-15"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-html-document-title-to-reflect-the-new-single-purpose-valentine-page-english-title",
+      "title": "Update the HTML document title to reflect the new single-purpose Valentine page (English title).",
+      "reqIds": [
+        "REQ-16"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-tiny-romantic-harp-sound-effect-and-play-it-when-the-user-clicks-taps-the-yes-button-on-the-valentine-proposal-screen-but-only-when-audio-is-enabled-via-the-existing-audio-toggle-audio-must-remain-off-by-default-until-enabled",
+      "title": "Add a tiny romantic harp sound effect and play it when the user clicks/taps the “Yes! 💕” button on the Valentine proposal screen, but only when audio is enabled via the existing audio toggle (audio must remain off by default until enabled).",
+      "reqIds": [
+        "REQ-17"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-wire-the-valentine-proposal-screen-to-the-audio-system-so-the-yes-click-can-trigger-the-harp-sfx-without-duplicating-independent-audio-controller-state-across-components",
+      "title": "Wire the Valentine proposal screen to the audio system so the “Yes” click can trigger the harp SFX without duplicating independent audio controller state across components.",
+      "reqIds": [
+        "REQ-19"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Welcome screen with title/subtitle and \"Start the Love Test\" CTA in romantic pastel aesthetic",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "5-question one-at-a-time MCQ quiz flow with progress indicator, hover micro-interactions, and correct-answer heart/confetti feedback",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Score-based results: perfect (5/5) win screen with date coupon + redeem button and booking message; <5 teasing result screen with Yes/No Valentine prompt",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "\"Valentine Trick\" UX: clicking No repeatedly enlarges Yes/shrinks No with escalating messages until Yes is clicked; then show final celebration screen with confetti/hearts",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "UI/UX styling: soft pastel gradients, floating hearts background, rounded cards, smooth transitions, mobile-first responsive design",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Optional audio: gentle background music and subtle sound effects",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Deployment/access: shareable link, no login required, keep experience simple and fast",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Single-page Valentine prompt (pink/white romantic theme) with Yes/No options, where hovering over No moves it away to prevent clicking; clicking Yes shows a meme image with text “Good choice”",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-9",
+      "summary": "Add romantic background music (“song”) and a tiny romantic harp sound effect (e.g., on Yes click) for the Valentine page, compatible with iPad Chrome",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-11",
+      "summary": "Ensure the romantic background song (looping background music) is present as a local static audio asset and is used by the existing audio controller so that when the user enables audio, the background song starts playing and loops; when audio is disabled, it stops.",
+      "reqIds": [
+        "REQ-18"
+      ],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Valentine Quiz Web App",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

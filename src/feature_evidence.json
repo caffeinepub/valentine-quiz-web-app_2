@@ -1,0 +1,45 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-add-a-tiny-romantic-harp-sound-effect-and-play-it-when-the-user-clicks-taps-the-yes-button-on-the-valentine-proposal-screen-but-only-when-audio-is-enabled-via-the-existing-audio-toggle-audio-must-remain-off-by-default-until-enabled",
+      "featureTitle": "Add a tiny romantic harp sound effect and play it when the user clicks/taps the “Yes! 💕” button on the Valentine proposal screen, but only when audio is enabled via the existing audio toggle (audio must remain off by default until enabled).",
+      "files": [
+        "frontend/src/components/screens/ValentineProposalScreen.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-17"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-wire-the-valentine-proposal-screen-to-the-audio-system-so-the-yes-click-can-trigger-the-harp-sfx-without-duplicating-independent-audio-controller-state-across-components",
+      "featureTitle": "Wire the Valentine proposal screen to the audio system so the “Yes” click can trigger the harp SFX without duplicating independent audio controller state across components.",
+      "files": [
+        "frontend/src/components/AudioToggle.tsx",
+        "frontend/src/components/RomanticLayout.tsx",
+        "frontend/src/components/screens/QuizScreen.tsx",
+        "frontend/src/components/screens/ValentineProposalScreen.tsx",
+        "frontend/src/context/AudioControllerContext.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-19"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "frontend/src/index.css": "Global styles with romantic pastel OKLCH color system (pinks, beige, blush, red), custom animations (float, pulse-heart, sparkle, confetti), and smooth transitions for the Valentine quiz aesthetic.",
+  "frontend/tailwind.config.js": "Extended Tailwind configuration with romantic color tokens, increased border radius (1.5rem), custom shadows, and Inter font family for the pastel Valentine theme.",
+  "frontend/src/App.tsx": "Simplified main app component that directly renders the ValentineProposalScreen as the primary experience without quiz flow.",
+  "frontend/src/components/RomanticLayout.tsx": "Shared layout wrapper providing romantic gradient background, floating hearts, audio toggle control, footer with caffeine.ai attribution, and wraps content with AudioControllerProvider for shared audio state.",
+  "frontend/src/components/screens/WelcomeScreen.tsx": "Landing screen with title \"How Well Do You Know Your Husband? 💖\", subtitle, animated heart icon, start button, and share functionality.",
+  "frontend/src/components/screens/QuizScreen.tsx": "Quiz flow component displaying one question at a time with progress bar, four answer options, celebration animations on correct answers, special sparkle effect for Q4 \"Everything\" option, using shared audio context for sound effects.",
+  "frontend/src/components/screens/ResultPerfectScreen.tsx": "Perfect score (5/5) result screen showing congratulations message, winning meme image, date coupon with redeem button revealing booking message, and restart/share options.",
+  "frontend/src/components/screens/ResultTeaseScreen.tsx": "Less-than-perfect score result screen with teasing message, meme image, and Valentine trick interaction where \"No\" button shrinks and \"Yes\" button grows with each \"No\" click.",
+  "frontend/src/components/screens/FinalCelebrationScreen.tsx": "Final celebration screen shown after accepting Valentine proposal, displaying \"YAY!!! You are my Valentine forever 💖🌹\" with confetti/hearts animation overlay.",
+  "frontend/src/components/ShareButton.tsx": "Reusable share button component that copies current URL to clipboard and displays success toast notification.",
+  "frontend/src/components/AudioToggle.tsx": "Audio control toggle button with volume icons that enables/disables background music and sound effects using the shared audio context.",
+  "frontend/src/components/animations/FloatingHeartsBackground.tsx": "Subtle floating hearts background animation with randomized positions, delays, and durations for ambient romantic atmosphere.",
+  "frontend/src/components/animations/ConfettiHeartsBurst.tsx": "Celebration animation component that bursts 20 heart particles in random directions when correct answers are selected.",
+  "frontend/src/components/animations/SparkleBurst.tsx": "Special sparkle animation triggered specifically when \"Everything\" option is selected on Question 4.",
+  "frontend/src/components/animations/FinalRomanticCelebration.tsx": "Grand celebration animation with 40 falling hearts and sparkles for the final Valentine acceptance screen.",
+  "frontend/src/data/loveQuizQuestions.ts": "Hardcoded quiz data containing all 5 questions with their options and correct answer indices exactly as specified in requirements.",
+  "frontend/src/hooks/useAudioController.ts": "Custom hook managing audio state, background music playback, and sound effect triggers with volume control and mute functionality.",
+  "frontend/src/components/screens/ValentineProposalScreen.tsx": "Valentine proposal screen with \"Yes\" and \"No\" buttons where \"No\" evades interaction on hover/touch, clicking \"Yes\" plays a romantic harp sound effect and shows confirmation with \"Good choice\" text and meme image.",
+  "frontend/index.html": "HTML entry point with updated title \"Be My Valentine? 💖\" for the Valentine proposal page.",
+  "frontend/src/context/AudioControllerContext.tsx": "React context provider that manages a single shared audio controller instance with background music and sound effects (select, correct, celebrate, harp), exposing audio state and play functions to all child components."
+}

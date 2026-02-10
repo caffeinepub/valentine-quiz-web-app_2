@@ -1,0 +1,44 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-10T18:37:06.908Z",
+  "summary": "Implemented a new shared AudioControllerContext with background music (/assets/audio/romantic-bg.mp3) and a harp SFX (/assets/audio/sfx-harp-tiny.mp3), wired AudioToggle and ValentineProposalScreen to it, and updated QuizScreen to play additional SFX. However, the diff summary does not show the required local static audio assets being added under frontend/public/assets/audio.",
+  "missing_requirements": [
+    {
+      "id": "REQ-17",
+      "requirement": "The harp sound effect is loaded from a local static asset under frontend/public/assets/audio (no external URLs).",
+      "reason": "Code references a local harp file path (/assets/audio/sfx-harp-tiny.mp3), but the diff summary shows no added/modified files under frontend/public/assets/audio to actually provide the asset.",
+      "evidence": [
+        "frontend/src/context/AudioControllerContext.tsx"
+      ]
+    },
+    {
+      "id": "REQ-18",
+      "requirement": "A background music file exists at the path expected by the app (currently /assets/audio/romantic-bg.mp3) under frontend/public/assets/audio.",
+      "reason": "Background music is instantiated from /assets/audio/romantic-bg.mp3, but the diff summary does not show adding that file (or any audio files) under frontend/public/assets/audio.",
+      "evidence": [
+        "frontend/src/context/AudioControllerContext.tsx"
+      ]
+    }
+  ],
+  "hallucinated_features": [
+    {
+      "description": "Added additional sound effects (select/correct/celebrate) and wired them into the quiz flow.",
+      "reason": "The BuildRequest only asked for romantic background music and a tiny harp SFX on the Valentine “Yes! 💕” action; it did not request quiz answer SFX.",
+      "evidence": [
+        "frontend/src/context/AudioControllerContext.tsx",
+        "frontend/src/components/screens/QuizScreen.tsx"
+      ]
+    }
+  ],
+  "confidence": 0.7,
+  "changed_files": [
+    "frontend-file-summaries.txt",
+    "frontend/src/components/AudioToggle.tsx",
+    "frontend/src/components/RomanticLayout.tsx",
+    "frontend/src/components/screens/QuizScreen.tsx",
+    "frontend/src/components/screens/ValentineProposalScreen.tsx",
+    "frontend/src/context/AudioControllerContext.tsx",
+    "project_state.json"
+  ]
+}
